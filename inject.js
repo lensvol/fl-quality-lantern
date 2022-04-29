@@ -44,21 +44,21 @@
         let isModified = false;
 
         let data = JSON.parse(response.target.responseText);
-
+        
         if (targetUrl.endsWith("/api/storylet") || targetUrl.endsWith("/api/storylet/goback")) {
             if ("storylet" in data) {
-                isModified = isModified || revealQualities(data.storylet);
+                isModified = revealQualities(data.storylet) || isModified;
 
                 if ("childBranches" in data.storylet) {
                     for (const branch of data.storylet.childBranches) {
-                        isModified = isModified || revealQualities(branch);
+                        isModified = revealQualities(branch) || isModified;
                     }
                 }
             }
 
             if ("storylets" in data) {
                 for (const storylet of data.storylets) {
-                    isModified = isModified || revealQualities(storylet);
+                    isModified = revealQualities(storylet) || isModified;
                 }
             }
         }
