@@ -44,7 +44,7 @@
         let isModified = false;
 
         let data = JSON.parse(response.target.responseText);
-        
+
         if (targetUrl.endsWith("/api/storylet") || targetUrl.endsWith("/api/storylet/goback")) {
             if ("storylet" in data) {
                 isModified = revealQualities(data.storylet) || isModified;
