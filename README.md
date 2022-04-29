@@ -1,4 +1,4 @@
-# FL Apocyan Mirage
+# FL Quality Lantern
 
 [![License](https://img.shields.io/github/license/lensvol/fl-quality-lantern)](https://github.com/lensvol/fl-quality-lantern/blob/master/LICENSE) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/lensvol/fl-quality-lantern)  
 
