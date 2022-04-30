@@ -45,7 +45,22 @@
 
         let data = JSON.parse(response.target.responseText);
 
-        if (targetUrl.endsWith("/api/storylet") || targetUrl.endsWith("/api/storylet/goback")) {
+        if (targetUrl.endsWith("/choosebranch")) {
+            if ("messages" in data) {
+                for (const message of data.messages) {
+                    const isHidden = !("priority" in message) || message.priority > 2;
+                    if (isHidden && message["type"] !== "AreaChangeMessage") {
+                        message.priority = 2;
+                        message.message += "<em> (hidden)</em>";
+                        isModified = true;
+                    }
+                }
+            }
+        }
+
+        if (targetUrl.endsWith("/api/storylet")
+            || targetUrl.endsWith("/api/storylet/goback")
+            || targetUrl.endsWith("/api/storylet/begin")) {
             if ("storylet" in data) {
                 isModified = revealQualities(data.storylet) || isModified;
 
