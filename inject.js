@@ -1,6 +1,15 @@
 (function () {
     const DONE = 4;
-    const UNKNOWN = -1;
+    const ALWAYS_SHOWN_TYPES = [
+        "DifficultyRollFailureMessage",
+        "DifficultyRollSuccessMessage",
+        "ActionsRefreshedMessage",
+        "AreaChangeMessage",
+        "FateBranchCurrencyUsedMessage",
+        "FatePointChangeMessage",
+        "STORE_ITEM_CURRENCY_USED_MESSAGE", /// ??? WTF, Seamus?
+        "DeckRefreshedMessage",
+    ];
 
     function debug(message) {
         console.debug(`[FL Quality Lantern] ${message}`);
@@ -49,7 +58,7 @@
             if ("messages" in data) {
                 for (const message of data.messages) {
                     const isHidden = !("priority" in message) || message.priority > 2;
-                    if (isHidden && message["type"] !== "AreaChangeMessage") {
+                    if (isHidden && !ALWAYS_SHOWN_TYPES.includes(message["type"])) {
                         message.priority = 2;
                         message.message += "<em> (hidden)</em>";
                         isModified = true;
