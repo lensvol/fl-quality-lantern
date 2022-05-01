@@ -54,6 +54,12 @@
                         message.message += "<em> (hidden)</em>";
                         isModified = true;
                     }
+
+                    if (message["type"] === "QualityExplicitlySetMessage"
+                        || message["type"] === "StandardQualityChangeMessage") {
+                        message.message += ` (${message.possession.nameAndLevel})`;
+                        isModified = true;
+                    }
                 }
             }
         }
