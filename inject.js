@@ -22,7 +22,7 @@
     function revealQualities(entry) {
         let wasModified = false;
 
-        for (quality of entry.qualityRequirements) {
+        for (const quality of entry.qualityRequirements) {
             if (quality.category === "Hidden") {
                 quality.category = "Story";
                 quality.name = "Hidden Quality";
@@ -66,7 +66,7 @@
 
                     if (message["type"] === "QualityExplicitlySetMessage"
                         || message["type"] === "StandardQualityChangeMessage") {
-                        message.message += ` (${message.possession.nameAndLevel})`;
+                        message.message += `<br>${message.possession.nameAndLevel}`;
                         isModified = true;
                     }
                 }
