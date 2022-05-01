@@ -1,7 +1,7 @@
 {
   "name": "FL Quality Lantern",
   "description": "Reveal hidden Qualities in Fallen London storylets.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "manifest_version": 2,
   "permissions": [],
   "content_scripts": [
