@@ -26,7 +26,7 @@
             if (quality.category === "Hidden") {
                 quality.category = "Story";
                 quality.name = "Hidden Quality";
-                debug(`Hidden quality: ${quality.qualityName}  (ID: ${quality.id})`);
+                debug(`Hidden quality: ${quality.qualityName}  (ID: ${quality.qualityId || quality.id})`);
                 wasModified = true;
             }
         }
