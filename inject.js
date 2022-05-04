@@ -1,5 +1,8 @@
 (function () {
     const DONE = 4;
+    const IGNORED_TYPES = [
+        "MapShouldUpdateMessage",
+    ];
     const ALWAYS_SHOWN_TYPES = [
         "DifficultyRollFailureMessage",
         "DifficultyRollSuccessMessage",
@@ -57,6 +60,11 @@
         if (targetUrl.endsWith("/choosebranch")) {
             if ("messages" in data) {
                 for (const message of data.messages) {
+                    if (IGNORED_TYPES.includes(message["type"])) {
+                        debug(`Ignoring message with type ${message["type"]}`);
+                        continue;
+                    }
+
                     const isHidden = !("priority" in message) || message.priority > 2;
                     if (isHidden && !ALWAYS_SHOWN_TYPES.includes(message["type"])) {
                         message.priority = 2;
