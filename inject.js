@@ -18,10 +18,6 @@
         console.debug(`[FL Quality Lantern] ${message}`);
     }
 
-    function log(message) {
-        console.log(`[FL Quality Lantern] ${message}`);
-    }
-
     function revealQualities(entry) {
         let wasModified = false;
 
