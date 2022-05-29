@@ -14,6 +14,7 @@
         "STORE_ITEM_CURRENCY_USED_MESSAGE", /// ??? WTF, Seamus?
         "DeckRefreshedMessage",
     ];
+    const seenQualities = new Set();
 
     function debug(message) {
         console.debug(`[FL Quality Lantern] ${message}`);
@@ -30,7 +31,14 @@
             if (quality.category === "Hidden") {
                 quality.category = "Story";
                 quality.name = "Hidden Quality";
-                debug(`Hidden quality: ${quality.qualityName}  (ID: ${quality.qualityId || quality.id})`);
+
+                const qualityId = quality.qualityId || quality.id;
+
+                if (!seenQualities.has(qualityId)) {
+                    debug(`Hidden quality: ${quality.qualityName}  (ID: ${qualityId})`);
+                    seenQualities.add(qualityId);
+                }
+
                 wasModified = true;
             }
         }
