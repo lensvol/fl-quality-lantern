@@ -20,10 +20,6 @@
         console.debug(`[FL Quality Lantern] ${message}`);
     }
 
-    function log(message) {
-        console.log(`[FL Quality Lantern] ${message}`);
-    }
-
     function revealQualities(entry) {
         let wasModified = false;
 
@@ -130,7 +126,7 @@
 
         request.responseText = responseText;
         request.readyState = DONE;
-        request.status = 200;
+        request.status = status;
 
         request.onreadystatechange();
     }
