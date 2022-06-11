@@ -5,4 +5,4 @@ s.onload = function () {
     this.remove();
 };
 (document.head || document.documentElement).appendChild(s);
-console.log("[FL Apocyan Mirage] Inserting interceptor...");
+console.log("[FL Quality Lantern] Inserting interceptor...");
