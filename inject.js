@@ -3,6 +3,7 @@
     const IGNORED_TYPES = [
         "MapShouldUpdateMessage",
         "PlanCompletedMessage",
+        "EquipmentChangeMessage",
     ];
     const ALWAYS_SHOWN_TYPES = [
         "DifficultyRollFailureMessage",
