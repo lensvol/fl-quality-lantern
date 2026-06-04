@@ -55,6 +55,7 @@
         }
 
         if (!(targetUrl.includes("/storylet")
+            || targetUrl.includes("/agents/begin")
             || targetUrl.includes("/agents/branch")
             || targetUrl.includes("/choosebranch"))) {
             return;
@@ -64,7 +65,9 @@
 
         let data = JSON.parse(response.target.responseText);
 
-        if (targetUrl.endsWith("/choosebranch") || targetUrl.endsWith("/agents/branch")) {
+        if (targetUrl.endsWith("/choosebranch")
+            || targetUrl.endsWith("/agents/begin")
+            || targetUrl.endsWith("/agents/branch")) {
             if ("messages" in data) {
                 for (const message of data.messages) {
                     if (IGNORED_TYPES.includes(message["type"])) {
