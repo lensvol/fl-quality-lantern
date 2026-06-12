@@ -32,5 +32,15 @@
   "web_accessible_resources": [{
     "resources": ["inject.js"],
     "matches": ["https://www.fallenlondon.com/*"]
-  }]
+  }],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{1e2c2abe-a5af-4333-9016-fd37af77f91b}",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  }
 }
